@@ -22,8 +22,10 @@ jobs:
           registry-url: 'https://npm.pkg.github.com'
           # Defaults to the user or organization that owns the workflow file
           scope: '@raphaeljoie'
-      - run: export VERSION=$( echo "${{ env.GITHUB_REF_NAME }}" | sed -e "s/^v//g" )
+      - run: export VERSION=$( echo "${GITHUB_REF_NAME}" | sed -e "s/^v//g" )
+      - run: echo $VERSION
       - run: sed -i -- "s/\${VERSION}/${VERSION}/g" ./package.json
+      - run: cat package.json
       - run: npm ci
       - run: npm run build --if-present
       - run: npm publish
