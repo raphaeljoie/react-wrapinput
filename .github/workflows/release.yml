@@ -22,9 +22,10 @@ jobs:
           registry-url: 'https://npm.pkg.github.com'
           # Defaults to the user or organization that owns the workflow file
           scope: '@raphaeljoie'
-      - run: export VERSION=$( echo "${GITHUB_REF_NAME}" | sed -e "s/^v//g" )
-      - run: echo $GITHUB_REF_NAME
-      - run: echo $VERSION
+
+      - run: echo "::set-output name=VERSION::$( echo ${GITHUB_REF_NAME} | sed -e \"s/^v//g\" )"
+        id: variables
+      - run: echo "The selected color is ${{ steps.variables.outputs.VERSION }}"
       - run: sed -i -- "s/\${VERSION}/${VERSION}/g" ./package.json
       - run: cat package.json
       - run: npm ci
