@@ -1,3 +1,4 @@
+import external from 'rollup-plugin-peer-deps-external';
 import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import babel from '@rollup/plugin-babel';
@@ -23,6 +24,7 @@ export default [
       },
     ],
     plugins: [
+      external(),
       resolve({ extensions: ['.jsx', '.js'] }),
       babel({
         exclude: 'node_modules/**',
