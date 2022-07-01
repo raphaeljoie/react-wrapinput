@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Input, but in wrap mode",
   "scripts": {
-    "rollup": "rollup -c"
+    "build": "rollup -c"
   },
   "author": "Raphaël Joie",
   "license": "MIT",
