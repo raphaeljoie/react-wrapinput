@@ -23,7 +23,7 @@ jobs:
           # Defaults to the user or organization that owns the workflow file
           scope: '@raphaeljoie'
 
-      - run: echo "::set-output name=VERSION::$( echo \"${ env.GITHUB_REF_NAME }\" | sed -e \"s/^v//g\" )"
+      - run: echo "::set-output name=VERSION::$( echo \"${{ env.GITHUB_REF_NAME }}\" | sed -e \"s/^v//g\" )"
         id: variables
       - run: echo "The selected color is ${{ steps.variables.outputs.VERSION }}"
       - run: sed -i -- "s/\${VERSION}/${VERSION}/g" ./package.json
