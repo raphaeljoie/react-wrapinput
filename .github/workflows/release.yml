@@ -15,23 +15,22 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16.x
-          # NPM
+          # === NPM ===
           # registry-url: 'https://registry.npmjs.org'
 
-          # GITHUB
+          # === GITHUB ===
           registry-url: 'https://npm.pkg.github.com'
           # Defaults to the user or organization that owns the workflow file
           scope: '@raphaeljoie'
-
-      - run: sed -i -- "s/\${VERSION}/${{ github.ref }}/g" ./package.json
+      - run: sed -i -- "s/\${VERSION}/${{ $GITHUB_REF_NAME }}/g" ./package.json
       - run: npm ci
       - run: npm run build --if-present
       - run: npm publish
         env:
-          # NPM
+          # === NPM ===
           # NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-          # GITHUB
+          # === GITHUB ===
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Create Release
