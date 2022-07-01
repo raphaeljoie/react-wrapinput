@@ -23,8 +23,8 @@ jobs:
           # Defaults to the user or organization that owns the workflow file
           scope: '@raphaeljoie'
 
-      - run: VERSION=${GITHUB_REF#refs/tags/v} && echo $VERSION && sed -i -- "s/\${VERSION}/$VERSION/g" ./package.json
-      - run: cat package.json
+      - name: Repliace ${VERSION} in package.json with the tag version
+        run: VERSION=${GITHUB_REF#refs/tags/v} && sed -i -- "s/\${VERSION}/$VERSION/g" ./package.json
       - run: npm ci
       - run: npm run build --if-present
       - run: npm publish
