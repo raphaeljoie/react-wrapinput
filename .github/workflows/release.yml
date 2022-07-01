@@ -22,7 +22,7 @@ jobs:
           registry-url: 'https://npm.pkg.github.com'
           # Defaults to the user or organization that owns the workflow file
           scope: '@raphaeljoie'
-      - run: sed -i -- "s/\${VERSION}/${{ $GITHUB_REF_NAME }}/g" ./package.json
+      - run: sed -i -- "s/\${VERSION}/${{ env.GITHUB_REF_NAME }}/g" ./package.json
       - run: npm ci
       - run: npm run build --if-present
       - run: npm publish
