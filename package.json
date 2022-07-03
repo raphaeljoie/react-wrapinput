@@ -7,8 +7,8 @@
   },
   "author": "Raphaël Joie",
   "license": "MIT",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
+  "main": "dist/index.cjs.min.js",
+  "module": "dist/index.msj.min.js",
   "files": [
     "dist",
     "README.md"
@@ -23,6 +23,7 @@
     "@rollup/plugin-commonjs": "^22.0.1",
     "@rollup/plugin-node-resolve": "^13.3.0",
     "@types/react": "^18.0.14",
+    "autoprefixer": "^10.4.7",
     "eslint": "^8.18.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-import": "^2.26.0",
@@ -31,6 +32,9 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "react": "^18.2.0",
     "rollup": "^2.75.7",
-    "rollup-plugin-peer-deps-external": "^2.2.4"
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "rollup-plugin-terser": "^7.0.2",
+    "sass": "^1.53.0"
   }
 }

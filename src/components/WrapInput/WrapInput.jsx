@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './WrapInput.scss';
+
 export default function WrapInput({
   value, onChange, style, type,
 }) {
@@ -19,20 +21,6 @@ export default function WrapInput({
           ref={elRef}
           value={value}
           onChange={onChange}
-          style={{
-            lineHeight: 'inherit',
-            textAlign: 'inherit',
-            padding: 0,
-            margin: 0,
-            border: 'none',
-            fontFamily: 'inherit',
-            fontSize: '1em',
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-          }}
         />
       </div>
     </div>
